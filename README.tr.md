@@ -1,42 +1,37 @@
 # Fuzuli
 
-Fuzuli is a basic implementation of [encoder-decoder](https://github.com/tensorflow/nmt) for nmt. Old Turkish poems have certain styles by line.
-And the styles are like a basic language. 
-This model implemented for translate these poems to their equivalent style. 
+Fuzuli, divan şiirlerinin aruz ölçüsünü tanıyan bir derin öğrenme modelidir. Aruz ölçüleri basit bir dil yapısındadır ve problem aslında bir çeviri problemlemidir. 
+Bu sebeple model, nöral makine çevirisi için kullanılan [encoder-decoder](https://github.com/tensorflow/nmt) yapısı baz alınarak, *_seq2seq_* bir model gerçeklendi. 
+Encoder-Decoder modelin araştırma makalesine [şuradan](https://arxiv.org/pdf/1609.08144.pdf) ulaşabilirsiniz.
 
-*_Türkçe döküman [buradan](README.tr.md)._*
-
-Here is an example:
-```
-Poem
-Eksik olmaz gamumuz bunca ki bizden gam alub
-Her gelen gamlı gider şâd gelüb yanumuza
-
-Style
-Feilâtün Fâilâtün Feilâtün Feilâtün Feilün Fa'lün
-```
-
-Check [here](http://www.wiki-zero.com/index.php?q=aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQXJhYmljX3Byb3NvZHk) for more information about this poetic meter.
-
-**_Note_**: This was an exprimental project.
-
+*_not bu proje deneysel bir projedir._*
 
 ### Data
+Veriseti, aruz ölçüleri bilinen divan şiirlerinden oluşmaktadır. Bu verisetindeki şiirler kültür bakanlığı tarafından [yayınlanan](http://ekitap.kulturturizm.gov.tr/TR,78354/divanlar.html) açık
+divan antolojilerinden toplandı ve düzenlendi.
 ```
-~700 Poem
-~7000 line
-58 style
+~700 şiir
+~7000 mısra
+58 aruz ölçüsü
+```
+
+Kullanılan antolojiler
+```
+İZAHLI DİVAN ŞİİRİ ANTOLOJİSİ, Necmettin Halil Onan
+ÂHÎ Divanı, Mustafa S. KAÇALİN
+DÎVÂN-I YÛNUS EMRE, Dr. Mustafa Tatcı
+BÂKÎ DÎVÂNI, Prof. Dr. Sabahattin KÜÇÜK
 ```
 
 ### Training
-Usage:
+Kullanım
 ```
 python nmt.py ./../data/
 ```
 
-**Note**: You can stop at any point because it creates checkpoint on each test.
+**Note**: Her test adımında checkpoint oluşturulduğundan, istenilen zamanda durdurulabilir.
 
-Sample:
+Örnek:
 ```
 Loss :  151.909
 ---Test---
@@ -85,14 +80,14 @@ Mef'ûlü Fâilâtü Mefâîlü Fâilün</go>
 ```
 
 ### Demo
-Demo works with saved checkpoint. Do not remember to change checkpoint name at demo.
+Demo, kaydedilen checkpointler ile çalışır. Çalıştırmadan önce dosyadan checkpoint ismini değiştirmeyi unutmayın.
 
-Usage
+Kullanım
 ```
 python nmt_demo.py ./../data/
 ```
 
-### Versions
+### Versiyonlar
 ```
 tensorflow                1.4.1
 numpy                     1.11.3
