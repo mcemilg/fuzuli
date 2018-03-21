@@ -4,8 +4,6 @@ Fuzuli, divan şiirlerinin aruz ölçüsünü tanıyan bir derin öğrenme model
 Bu sebeple model, nöral makine çevirisi için kullanılan [encoder-decoder](https://github.com/tensorflow/nmt) yapısı baz alınarak, *_seq2seq_* bir model gerçeklendi. 
 Encoder-Decoder modelin araştırma makalesine [şuradan](https://arxiv.org/pdf/1609.08144.pdf) ulaşabilirsiniz.
 
-*_not bu proje deneysel bir projedir._*
-
 ### Data
 Veriseti, aruz ölçüleri bilinen divan şiirlerinden oluşmaktadır. Bu verisetindeki şiirler kültür bakanlığı tarafından [yayınlanan](http://ekitap.kulturturizm.gov.tr/TR,78354/divanlar.html) açık
 divan antolojilerinden toplandı ve düzenlendi.
